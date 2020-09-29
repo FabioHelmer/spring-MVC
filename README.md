@@ -7,6 +7,7 @@ Curso de Primeiros Passos no Desenvolvimento Web com Spring-Boot, MVC, JPA, Thym
 - Spring Boot
 - Padrão MVC
 - Thymeleaf
+- MySql
 
 ## O que Aprendi
 
@@ -16,4 +17,4 @@ Curso de Primeiros Passos no Desenvolvimento Web com Spring-Boot, MVC, JPA, Thym
 - Usar recursos estáticos (CSS e JS) via WebJars;
 - Realizar paginação back-end nas tabelas de dados;
 - Desenvolver aplicações web com o Spring MVC;
-- Enviar e realizar o Deploy da aplicação na nuvem Heroku;
+- Enviar e realizar o Deploy da aplicação na nuvem Heroku.
