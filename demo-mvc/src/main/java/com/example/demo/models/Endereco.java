@@ -1,16 +1,20 @@
-package com.example.demo.domain;
+package com.example.demo.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ENDERECOS")
-@SuppressWarnings("serial")
-public class Endereco extends AbstractEntity<Long> {
+@Table(name = "rh_enderecos")
+public class Endereco {
+
+	@Id
+	@Column(name = "id", nullable = false, unique = true, length = 20)
+	private String id;
 
 	@Column(nullable = false)
 	private String logradouro;
@@ -31,6 +35,7 @@ public class Endereco extends AbstractEntity<Long> {
 	@Column(nullable = false, length = 5)
 	private Integer numero;
 
+	@Column(name = "complemento", nullable = true)
 	private String complemento;
 
 	@OneToOne(mappedBy = "endereco")
@@ -98,6 +103,14 @@ public class Endereco extends AbstractEntity<Long> {
 
 	public void setFuncionarios(Funcionario funcionarios) {
 		this.funcionarios = funcionarios;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 }

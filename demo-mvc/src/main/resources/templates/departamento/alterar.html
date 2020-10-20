@@ -24,7 +24,9 @@ layout:decorate="~{layout}">
 	        </nav>
 	
 	        <div class="container" id="cadastro">
-	            <form th:action="@{/departamentos/salvar}" method="POST" th:object="${departamento}">
+	            <form th:action="@{/departamentos/alterar}" method="POST" th:object="${departamento}">
+	            <input type="hidden" th:field="*{id}">
+	            <input type="hidden" th:field="*{codigo}">
 	                <div class="form-row">
 	                    <div class="form-group col-md-6">
 	                        <label for="nome">Departamento</label>

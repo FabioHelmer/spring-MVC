@@ -23,16 +23,18 @@ layout:decorate="~{layout}">
 	        </nav>
 	
 	        <div class="container" id="cadastro">
-	            <form th:action="@{/cargos/salvar}" method="POST" th:object="${cargo}">
+	            <form th:action="@{/cargos/alterar}" method="POST" th:object="${cargo}">
+	             <input type="hidden" th:field="*{id}">
+	             <input type="hidden" th:field="*{codigo}">
 	                <div class="form-row">
 	                    <div class="form-group col-md-6">
 	                        <label for="nome">Nome do Cargo</label>
 	                        <input type="text" class="form-control" id="nome" placeholder="Nome Cargo" autofocus="autofocus"
 	                             th:field ="*{nome}"/>
 	                        <div style="margin-top: 5px" class="alert alert-danger" role="alert"
-									th:if="${#fields.hasErrors('nome')}">
-								<label th:errors="*{nome}" class="validation-messege"></label>
-							</div>
+								th:if="${#fields.hasErrors('nome')}">
+							<label th:errors="*{nome}" class="validation-messege"></label>
+						</div>
 	                    </div>
 	                    
 	                    

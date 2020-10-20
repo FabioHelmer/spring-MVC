@@ -17,7 +17,7 @@ layout:decorate="~{layout}">
 	                        </li>
 	                    </ul>
 	                </div>
-	                <a class="btn btn-primary btn-md" href="/funcionarios/listar" role="button">
+	                <a class="btn btn-primary btn-md" href="@{/funcionarios/listar}" role="button">
 	                    <span class="oi oi-spreadsheet" title="Cadastro" aria-hidden="true"></span>
 	                    <span>Listar Funcionários</span>
 	                </a>
@@ -25,7 +25,8 @@ layout:decorate="~{layout}">
 	        </div>
 	
 	        <div class="container" id="cadastro">
-	            <form th:action="@{/funcionarios/salvar}" method="POST" th:object="${funcionario}">
+	            <form th:action="@{/funcionarios/alterar}" method="POST" th:object="${funcionario}">
+	             <input type="hidden" th:field="*{id}">
 	                <div class="form-row">
 	                    <div class="form-group col-md-6">
 	                        <label for="nome">Nome do Funcionário</label>
