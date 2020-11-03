@@ -2,12 +2,14 @@
 
 Curso de Primeiros Passos no Desenvolvimento Web com Spring-Boot, MVC, JPA, Thymeleaf e Heroku.
 
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png) | Second Header
+
 ## Tecnologia utilizada
 
 - Spring Boot
 - Padrão MVC
 - Thymeleaf
-- MySql
+- Postgres
 
 ## O que Aprendi
 
