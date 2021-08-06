@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.models.Departamento;
+import com.example.demo.models.Mensagem;
 import com.example.demo.service.DepartamentoService;
 
 @Controller
@@ -37,6 +38,8 @@ public class DepartamentoController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/departamento/lista");
 		mv.addObject("departamentos", departamentoService.findAll());
+		Mensagem msg = new Mensagem("", "Não pode excluido, pois esse registro esta em uso");
+		mv.addObject("msg", msg);
 		return mv;
 	}
 
@@ -83,8 +86,16 @@ public class DepartamentoController {
 	@GetMapping("delete/{id}")
 	public ModelAndView delete(@PathVariable("id") String id, HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
-		departamentoService.delete(id);
-		mv.setViewName("redirect:/departamentos/listar");
+		boolean excluir = departamentoService.verificaAssociacaoCargos(id);
+		if (excluir) {
+			departamentoService.delete(id);
+			mv.setViewName("redirect:/departamentos/listar");
+		} else {
+			mv.setViewName("/departamento/lista");
+			Mensagem msg = new Mensagem("erro", "Não pode excluido, pois esse registro esta em uso");
+			mv.addObject("msg", msg );
+			mv.addObject("departamentos", departamentoService.findAll());
+		}
 
 		return mv;
 	}

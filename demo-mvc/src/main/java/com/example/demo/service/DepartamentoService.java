@@ -58,4 +58,9 @@ public class DepartamentoService implements GenericService<Departamento, String>
 		return departamentoRepository.save(departamento);
 	}
 
+	public boolean verificaAssociacaoCargos(String idDepartamento) {
+		return departamentoRepository.findCargos(idDepartamento).isEmpty();
+
+	}
+
 }
